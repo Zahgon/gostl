@@ -11,59 +11,52 @@ type RbTreeIterator[K, V any] struct {
 
 // NewIterator creates a RbTreeIterator from the passed node
 func NewIterator[K, V any](node *Node[K, V]) *RbTreeIterator[K, V] {
-	return &RbTreeIterator[K, V]{node: node}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // IsValid returns true if the iterator is valid, otherwise returns false
-func (iter *RbTreeIterator[K, V]) IsValid() bool {
-	return iter.node != nil
-}
+func (iter *RbTreeIterator[K, V]) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 // Next moves the pointer of the iterator to the next node, and returns itself
 func (iter *RbTreeIterator[K, V]) Next() iterator.ConstIterator[V] {
-	if iter.IsValid() {
-		iter.node = iter.node.Next()
-	}
-	return iter
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Prev moves the pointer of the iterator to the previous node, and returns itself
 func (iter *RbTreeIterator[K, V]) Prev() iterator.ConstBidIterator[V] {
-	if iter.IsValid() {
-		iter.node = iter.node.Prev()
-	}
-	return iter
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Key returns the node's key of the iterator point to
 func (iter *RbTreeIterator[K, V]) Key() K {
-	return iter.node.Key()
+	_ = "STUB: not implemented"
+	return *
+
+	// Value returns the node's value of the iterator point to
+	new(K)
 }
 
-// Value returns the node's value of the iterator point to
 func (iter *RbTreeIterator[K, V]) Value() V {
-	return iter.node.Value()
+	_ = "STUB: not implemented"
+	return *
+
+	// SetValue sets the node's value of the iterator point to
+	new(V)
 }
 
-// SetValue sets the node's value of the iterator point to
-func (iter *RbTreeIterator[K, V]) SetValue(val V) error {
-	iter.node.SetValue(val)
-	return nil
-}
+func (iter *RbTreeIterator[K, V]) SetValue(val V) error { _ = "STUB: not implemented"; return nil }
 
 // Clone clones the iterator into a new RbTreeIterator
 func (iter *RbTreeIterator[K, V]) Clone() iterator.ConstIterator[V] {
-	return NewIterator(iter.node)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Equal returns true if the iterator is equal to the passed iterator
 func (iter *RbTreeIterator[K, V]) Equal(other iterator.ConstIterator[V]) bool {
-	otherIter, ok := other.(*RbTreeIterator[K, V])
-	if !ok {
-		return false
-	}
-	if otherIter.node == iter.node {
-		return true
-	}
+	_ = "STUB: not implemented"
 	return false
 }

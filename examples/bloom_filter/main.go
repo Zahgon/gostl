@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/liyue201/gostl/ds/bloomfilter"
 )
 
 func main() {

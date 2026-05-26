@@ -1,110 +1,73 @@
 package array
 
-import (
-	"fmt"
-)
-
 // Array is a fixed size slice
 type Array[T any] struct {
 	values []T
 }
 
 // New creates a new array with passed size
-func New[T any](size int) *Array[T] {
-	return &Array[T]{values: make([]T, size, size)}
-}
+func New[T any](size int) *Array[T] { _ = "STUB: not implemented"; return nil }
 
 // NewFromArray creates a new array from another array, and copy its values
-func NewFromArray[T any](other *Array[T]) *Array[T] {
-	a := &Array[T]{values: make([]T, other.Size(), other.Size())}
-	for i := range other.values {
-		a.values[i] = other.values[i]
-	}
-	return a
-}
+func NewFromArray[T any](other *Array[T]) *Array[T] { _ = "STUB: not implemented"; return nil }
 
 // Fill fills Array a with value val
-func (a *Array[T]) Fill(val T) {
-	for i := range a.values {
-		a.values[i] = val
-	}
-}
+func (a *Array[T]) Fill(val T) { _ = "STUB: not implemented"; return }
 
 // Set sets value val to the position pos of the array
-func (a *Array[T]) Set(pos int, val T) {
-	if pos < 0 || pos >= len(a.values) {
-		return
-	}
-	a.values[pos] = val
-}
+func (a *Array[T]) Set(pos int, val T) { _ = "STUB: not implemented"; return }
 
 // At returns the value at position pos in the array
-func (a *Array[T]) At(pos int) T {
-	if pos < 0 || pos >= len(a.values) {
-		panic("index out off range")
-	}
-	return a.values[pos]
-}
+func (a *Array[T]) At(pos int) T { _ = "STUB: not implemented"; return *new(T) }
 
 // Front returns the first value in the array
 func (a *Array[T]) Front() T {
-	return a.At(0)
+	_ = "STUB: not implemented"
+
+	// Back returns the last value in the array
+	return *new(T)
 }
 
-// Back returns the last value in the array
-func (a *Array[T]) Back() T {
-	return a.At(len(a.values) - 1)
-}
+func (a *Array[T]) Back() T { _ = "STUB: not implemented"; return *new(T) }
 
 // Size returns number of elements within the array
-func (a *Array[T]) Size() int {
-	return len(a.values)
-}
+func (a *Array[T]) Size() int { _ = "STUB: not implemented"; return 0 }
 
 // Empty returns whether the array is empty or not
-func (a *Array[T]) Empty() bool {
-	return len(a.values) == 0
-}
+func (a *Array[T]) Empty() bool { _ = "STUB: not implemented"; return false }
 
 // SwapArray swaps the values of two arrays
-func (a *Array[T]) SwapArray(other *Array[T]) {
-	if a.Size() != other.Size() {
-		return
-	}
-	a.values, other.values = other.values, a.values
-}
+func (a *Array[T]) SwapArray(other *Array[T]) { _ = "STUB: not implemented"; return }
 
 // Data returns the internal values of the array
 func (a *Array[T]) Data() []T {
-	return a.values
+	_ = "STUB: not implemented"
+
+	// Begin returns an iterator of the array with the first position
+	return nil
 }
 
-// Begin returns an iterator of the array with the first position
 func (a *Array[T]) Begin() *ArrayIterator[T] {
-	return a.First()
+	_ = "STUB: not implemented"
+
+	// End returns an iterator of the array with the position a.Size()
+	return nil
 }
 
-// End returns an iterator of the array with the position a.Size()
-func (a *Array[T]) End() *ArrayIterator[T] {
-	return a.IterAt(a.Size())
-}
+func (a *Array[T]) End() *ArrayIterator[T] { _ = "STUB: not implemented"; return nil }
 
 // First returns an iterator of the array with the first position
 func (a *Array[T]) First() *ArrayIterator[T] {
-	return a.IterAt(0)
+	_ = "STUB: not implemented"
+
+	// Last returns an iterator of the array with the last position
+	return nil
 }
 
-// Last returns an iterator of the array with the last position
-func (a *Array[T]) Last() *ArrayIterator[T] {
-	return a.IterAt(a.Size() - 1)
-}
+func (a *Array[T]) Last() *ArrayIterator[T] { _ = "STUB: not implemented"; return nil }
 
 // IterAt returns an iterator of the array with position pos
-func (a *Array[T]) IterAt(pos int) *ArrayIterator[T] {
-	return &ArrayIterator[T]{array: a, position: pos}
-}
+func (a *Array[T]) IterAt(pos int) *ArrayIterator[T] { _ = "STUB: not implemented"; return nil }
 
 // String returns a string representation of the array
-func (a *Array[T]) String() string {
-	return fmt.Sprintf("%v", a.values)
-}
+func (a *Array[T]) String() string { _ = "STUB: not implemented"; return "" }

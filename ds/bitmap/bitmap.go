@@ -6,77 +6,33 @@ type Bitmap struct {
 	size uint64 //bitmap's size in bit, is the multiple of 8
 }
 
-//New creates a new bitmap
-func New(size uint64) *Bitmap {
-	size = (size + 7) / 8 * 8
-	bitmap := &Bitmap{
-		size: size,
-		data: make([]byte, size/8, size/8),
-	}
-	return bitmap
-}
+// New creates a new bitmap
+func New(size uint64) *Bitmap { _ = "STUB: not implemented"; return nil }
 
 // NewFromData creates a bitmap from the exported data
-func NewFromData(data []byte) *Bitmap {
-	bitmap := &Bitmap{
-		size: uint64(len(data)) * 8,
-		data: data,
-	}
-	return bitmap
-}
+func NewFromData(data []byte) *Bitmap { _ = "STUB: not implemented"; return nil }
 
 // Set sets 1 at position pos
-func (b *Bitmap) Set(pos uint64) bool {
-	if pos >= b.size {
-		return false
-	}
-	b.data[pos>>3] |= 1 << (pos & 0x07)
-	return true
-}
+func (b *Bitmap) Set(pos uint64) bool { _ = "STUB: not implemented"; return false }
 
 // Unset sets 0 at position pos
-func (b *Bitmap) Unset(pos uint64) bool {
-	if pos >= b.size {
-		return false
-	}
-	b.data[pos>>3] &= ^(1 << (pos & 0x07))
-	return true
-}
+func (b *Bitmap) Unset(pos uint64) bool { _ = "STUB: not implemented"; return false }
 
 // IsSet returns true if the position pos is 1
-func (b *Bitmap) IsSet(pos uint64) bool {
-	if pos >= b.size {
-		return false
-	}
-	if b.data[pos>>3]&(1<<(pos&0x07)) > 0 {
-		return true
-	}
-	return false
-}
+func (b *Bitmap) IsSet(pos uint64) bool { _ = "STUB: not implemented"; return false }
 
 // Resize resizes the bitmap with the passed size
-func (b *Bitmap) Resize(size uint64) {
-	size = (size + 7) / 8 * 8
-	if b.size == size {
-		return
-	}
-	data := make([]byte, size/8, size/8)
-	copy(data, b.data)
-	b.data = data
-	b.size = size
-}
+func (b *Bitmap) Resize(size uint64) { _ = "STUB: not implemented"; return }
 
 // Size returns the bitmap's size in bit
 func (b *Bitmap) Size() uint64 {
-	return b.size
+	_ = "STUB: not implemented"
+
+	// Clear clear the bitmap's data
+	return 0
 }
 
-// Clear clear the bitmap's data
-func (b *Bitmap) Clear() {
-	b.data = make([]byte, b.size/8, b.size/8)
-}
+func (b *Bitmap) Clear() { _ = "STUB: not implemented"; return }
 
 // Data returns the bitmap's internal data slice
-func (b *Bitmap) Data() []byte {
-	return b.data
-}
+func (b *Bitmap) Data() []byte { _ = "STUB: not implemented"; return nil }

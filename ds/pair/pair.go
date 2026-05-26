@@ -5,23 +5,12 @@ type Pair struct {
 	Back  any
 }
 
-func MakePair(front any, back any) *Pair {
-	return &Pair{Front: front, Back: back}
-}
+func MakePair(front any, back any) *Pair { _ = "STUB: not implemented"; return nil }
 
-func (P *Pair) New(front any, back any) {
-	P.Front = front
-	P.Back = back
-}
+func (P *Pair) New(front any, back any) { _ = "STUB: not implemented"; return }
 
-func (P *Pair) Equal(pair2 Pair) bool {
-	return P.Front == pair2.Front && P.Back == pair2.Back
-}
+func (P *Pair) Equal(pair2 Pair) bool { _ = "STUB: not implemented"; return false }
 
-func (P *Pair) Fronts() any {
-	return P.Front
-}
+func (P *Pair) Fronts() any { _ = "STUB: not implemented"; return *new(any) }
 
-func (P *Pair) Backs() any {
-	return P.Back
-}
+func (P *Pair) Backs() any { _ = "STUB: not implemented"; return *new(any) }

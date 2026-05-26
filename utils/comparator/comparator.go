@@ -27,282 +27,126 @@ type Float interface {
 //	1  , if a > b
 type Comparator[T any] func(a, b T) int
 
-func OrderedTypeCmp[T Ordered](a, b T) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func OrderedTypeCmp[T Ordered](a, b T) int { _ = "STUB: not implemented"; return 0 }
 
 // Reverse returns a comparator reverse to cmp
-func Reverse[T any](cmp Comparator[T]) Comparator[T] {
-	return func(a, b T) int {
-		return -cmp(a, b)
-	}
-}
+func Reverse[T any](cmp Comparator[T]) Comparator[T] { _ = "STUB: not implemented"; return nil }
 
 // IntComparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func IntComparator(a, b int) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func IntComparator(a, b int) int { _ = "STUB: not implemented"; return 0 }
 
 // UintComparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func UintComparator(a, b uint) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func UintComparator(a, b uint) int { _ = "STUB: not implemented"; return 0 }
 
 // Int8Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Int8Comparator(a, b int8) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func Int8Comparator(a, b int8) int { _ = "STUB: not implemented"; return 0 }
 
 // Uint8Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Uint8Comparator(a, b uint8) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func Uint8Comparator(a, b uint8) int { _ = "STUB: not implemented"; return 0 }
 
 // Int16Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Int16Comparator(a, b int16) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func Int16Comparator(a, b int16) int { _ = "STUB: not implemented"; return 0 }
 
 // Uint16Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Uint16Comparator(a, b uint16) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func Uint16Comparator(a, b uint16) int { _ = "STUB: not implemented"; return 0 }
 
 // Int32Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Int32Comparator(a, b int32) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func Int32Comparator(a, b int32) int { _ = "STUB: not implemented"; return 0 }
 
 // Uint32Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Uint32Comparator(a, b uint32) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func Uint32Comparator(a, b uint32) int { _ = "STUB: not implemented"; return 0 }
 
 // Int64Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Int64Comparator(a, b int64) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func Int64Comparator(a, b int64) int { _ = "STUB: not implemented"; return 0 }
 
 // Uint64Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Uint64Comparator(a, b uint64) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func Uint64Comparator(a, b uint64) int { _ = "STUB: not implemented"; return 0 }
 
 // Float32Comparator compare a with b
 //
 //	-1 , if a < b or a is NaN and b is not NaN
 //	0  , if a == b or a is NaN and b is NaN
 //	1  , if a > b or a is not NaN and b is NaN
-func Float32Comparator(a, b float32) int {
-	aIsNaN, bIsNaN := math.IsNaN(float64(a)), math.IsNaN(float64(b))
-	if a == b || (aIsNaN && bIsNaN) {
-		return 0
-	}
-	if a < b || aIsNaN {
-		return -1
-	}
-	return 1
-}
+func Float32Comparator(a, b float32) int { _ = "STUB: not implemented"; return 0 }
 
 // Float64Comparator compare a with b
 //
 //	-1 , if a < b or a is NaN and b is not NaN
 //	0  , if a == b or a is NaN and b is NaN
 //	1  , if a > b or a is not NaN and b is NaN
-func Float64Comparator(a, b float64) int {
-	aIsNaN, bIsNaN := math.IsNaN(a), math.IsNaN(b)
-	if a == b || (aIsNaN && bIsNaN) {
-		return 0
-	}
-	if a < b || aIsNaN {
-		return -1
-	}
-	return 1
-}
+func Float64Comparator(a, b float64) int { _ = "STUB: not implemented"; return 0 }
 
 // StringComparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func StringComparator(a, b string) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func StringComparator(a, b string) int { _ = "STUB: not implemented"; return 0 }
 
 // UintptrComparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func UintptrComparator(a, b uintptr) int {
-	if a == b {
-		return 0
-	}
-	if a < b {
-		return -1
-	}
-	return 1
-}
+func UintptrComparator(a, b uintptr) int { _ = "STUB: not implemented"; return 0 }
 
 // BoolComparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func BoolComparator(a, b bool) int {
-	if a == b {
-		return 0
-	}
-	if !a && b {
-		return -1
-	}
-	return 1
-}
+func BoolComparator(a, b bool) int { _ = "STUB: not implemented"; return 0 }
 
 // Complex64Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Complex64Comparator(a, b complex64) int {
-	if a == b {
-		return 0
-	}
-	if real(a) < real(a) {
-		return -1
-	}
-	if real(a) == real(b) && imag(a) < imag(b) {
-		return -1
-	}
-	return 1
-}
+func Complex64Comparator(a, b complex64) int { _ = "STUB: not implemented"; return 0 }
 
 // Complex128Comparator compare a with b
 //
 //	-1 , if a < b
 //	0  , if a == b
 //	1  , if a > b
-func Complex128Comparator(a, b complex128) int {
-	if a == b {
-		return 0
-	}
-	if real(a) < real(b) {
-		return -1
-	}
-	if real(a) == real(b) && imag(a) < imag(b) {
-		return -1
-	}
-	return 1
-}
+func Complex128Comparator(a, b complex128) int { _ = "STUB: not implemented"; return 0 }

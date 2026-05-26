@@ -1,6 +1,6 @@
 package container
 
-//Container is an interface for a base linear container
+// Container is an interface for a base linear container
 type Container[T any] interface {
 	PushBack(value T)
 	PushFront(value T)

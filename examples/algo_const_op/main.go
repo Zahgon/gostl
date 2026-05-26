@@ -9,13 +9,9 @@ import (
 	"github.com/liyue201/gostl/utils/iterator"
 )
 
-func isEven(iter iterator.ConstIterator[int]) bool {
-	return iter.Value()%2 == 0
-}
+func isEven(iter iterator.ConstIterator[int]) bool { _ = "STUB: not implemented"; return false }
 
-func greaterThan5(iter iterator.ConstIterator[int]) bool {
-	return iter.Value() > 5
-}
+func greaterThan5(iter iterator.ConstIterator[int]) bool { _ = "STUB: not implemented"; return false }
 
 func main() {
 	a := deque.New[int]()

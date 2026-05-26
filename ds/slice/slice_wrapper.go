@@ -1,65 +1,41 @@
 package slice
 
-//SliceWrapper wraps a slice in order to provide functions related to iterators
+// SliceWrapper wraps a slice in order to provide functions related to iterators
 type SliceWrapper[T any] struct {
 	slice []T
 }
 
 // NewSliceWrapper creates a SliceWrapper
-func NewSliceWrapper[T any](slice []T) *SliceWrapper[T] {
-	return &SliceWrapper[T]{
-		slice: slice,
-	}
-}
+func NewSliceWrapper[T any](slice []T) *SliceWrapper[T] { _ = "STUB: not implemented"; return nil }
 
 // Attach update the internal slice to newSlice
 func (s *SliceWrapper[T]) Attach(newSlice []T) {
-	s.slice = newSlice
+	_ = "STUB: not implemented"
+
+	// Len returns the length of s
+	return
 }
 
-// Len returns the length of s
-func (s *SliceWrapper[T]) Len() int {
-	return len(s.slice)
-}
+func (s *SliceWrapper[T]) Len() int { _ = "STUB: not implemented"; return 0 }
 
 // At returns the value at position
-func (s *SliceWrapper[T]) At(position int) T {
-	if position < 0 || position >= s.Len() {
-		panic("Out off range")
-	}
-	return s.slice[position]
-}
+func (s *SliceWrapper[T]) At(position int) T { _ = "STUB: not implemented"; return *new(T) }
 
 // Set sets value at position
-func (s *SliceWrapper[T]) Set(position int, val T) {
-	if position < 0 || position >= s.Len() {
-		return
-	}
-	s.slice[position] = val
-}
+func (s *SliceWrapper[T]) Set(position int, val T) { _ = "STUB: not implemented"; return }
 
 // Begin returns the first iterator of s
 func (s *SliceWrapper[T]) Begin() *SliceIterator[T] {
-	return s.First()
+	_ = "STUB: not implemented"
+
+	// End returns the end iterator of s
+	return nil
 }
 
-// End returns the end iterator of s
-func (s *SliceWrapper[T]) End() *SliceIterator[T] {
-	return &SliceIterator[T]{s: s,
-		position: s.Len(),
-	}
-}
+func (s *SliceWrapper[T]) End() *SliceIterator[T] { _ = "STUB: not implemented"; return nil }
 
 // First returns the first iterator of s
-func (s *SliceWrapper[T]) First() *SliceIterator[T] {
-	return &SliceIterator[T]{s: s,
-		position: 0,
-	}
-}
+func (s *SliceWrapper[T]) First() *SliceIterator[T] { _ = "STUB: not implemented"; return nil }
 
 // Last returns the last iterator of s
-func (s *SliceWrapper[T]) Last() *SliceIterator[T] {
-	return &SliceIterator[T]{s: s,
-		position: s.Len(),
-	}
-}
+func (s *SliceWrapper[T]) Last() *SliceIterator[T] { _ = "STUB: not implemented"; return nil }

@@ -1,64 +1,12 @@
 package main
 
-import (
-	"fmt"
-	"github.com/liyue201/gostl/ds/queue"
-	"sync"
-	"time"
-)
-
-func example1() {
-	fmt.Printf("example1:\n")
-	q := queue.New[int]()
-	for i := 0; i < 5; i++ {
-		q.Push(i)
-	}
-	for !q.Empty() {
-		fmt.Printf("%v\n", q.Pop())
-	}
-}
+func example1() { _ = "STUB: not implemented"; return }
 
 // using list as container
-func example2() {
-	fmt.Printf("example2:\n")
-	q := queue.New[int](queue.WithListContainer[int]())
-	for i := 0; i < 5; i++ {
-		q.Push(i)
-	}
-	for !q.Empty() {
-		fmt.Printf("%v\n", q.Pop())
-	}
-}
+func example2() { _ = "STUB: not implemented"; return }
 
 // goroutine-save
-func example3() {
-	fmt.Printf("example3:\n")
-
-	s := queue.New(queue.WithGoroutineSafe[int]())
-	sw := sync.WaitGroup{}
-	sw.Add(2)
-	go func() {
-		defer sw.Done()
-		for i := 0; i < 10; i++ {
-			s.Push(i)
-			time.Sleep(time.Microsecond * 100)
-		}
-	}()
-
-	go func() {
-		defer sw.Done()
-		for i := 0; i < 10; {
-			if !s.Empty() {
-				val := s.Pop()
-				fmt.Printf("%v\n", val)
-				i++
-			} else {
-				time.Sleep(time.Microsecond * 100)
-			}
-		}
-	}()
-	sw.Wait()
-}
+func example3() { _ = "STUB: not implemented"; return }
 
 func main() {
 	example1()

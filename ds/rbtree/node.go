@@ -21,71 +21,39 @@ type Node[K, V any] struct {
 
 // Key returns node's key
 func (n *Node[K, V]) Key() K {
-	return n.key
+	_ = "STUB: not implemented"
+
+	// Value returns node's value
+	return *new(K)
 }
 
-// Value returns node's value
 func (n *Node[K, V]) Value() V {
-	return n.value
+	_ = "STUB: not implemented"
+
+	// SetValue sets node's value
+	return *new(V)
 }
 
-// SetValue sets node's value
 func (n *Node[K, V]) SetValue(val V) {
-	n.value = val
+	_ = "STUB: not implemented"
+
+	// Next returns the Node's successor as an iterator.
+	return
 }
 
-// Next returns the Node's successor as an iterator.
-func (n *Node[K, V]) Next() *Node[K, V] {
-	return successor(n)
-}
+func (n *Node[K, V]) Next() *Node[K, V] { _ = "STUB: not implemented"; return nil }
 
 // Prev returns the Node's predecessor as an iterator.
-func (n *Node[K, V]) Prev() *Node[K, V] {
-	return presuccessor(n)
-}
+func (n *Node[K, V]) Prev() *Node[K, V] { _ = "STUB: not implemented"; return nil }
 
 // successor returns the successor of the Node
-func successor[K, V any](x *Node[K, V]) *Node[K, V] {
-	if x.right != nil {
-		return minimum(x.right)
-	}
-	y := x.parent
-	for y != nil && x == y.right {
-		x = y
-		y = x.parent
-	}
-	return y
-}
+func successor[K, V any](x *Node[K, V]) *Node[K, V] { _ = "STUB: not implemented"; return nil }
 
 // presuccessor returns the presuccessor of the Node
-func presuccessor[K, V any](x *Node[K, V]) *Node[K, V] {
-	if x.left != nil {
-		return maximum(x.left)
-	}
-	if x.parent != nil {
-		if x.parent.right == x {
-			return x.parent
-		}
-		for x.parent != nil && x.parent.left == x {
-			x = x.parent
-		}
-		return x.parent
-	}
-	return nil
-}
+func presuccessor[K, V any](x *Node[K, V]) *Node[K, V] { _ = "STUB: not implemented"; return nil }
 
 // minimum finds the minimum Node of subtree n.
-func minimum[K any, V any](n *Node[K, V]) *Node[K, V] {
-	for n.left != nil {
-		n = n.left
-	}
-	return n
-}
+func minimum[K any, V any](n *Node[K, V]) *Node[K, V] { _ = "STUB: not implemented"; return nil }
 
 // maximum finds the maximum Node of subtree n.
-func maximum[K any, V any](n *Node[K, V]) *Node[K, V] {
-	for n.right != nil {
-		n = n.right
-	}
-	return n
-}
+func maximum[K any, V any](n *Node[K, V]) *Node[K, V] { _ = "STUB: not implemented"; return nil }

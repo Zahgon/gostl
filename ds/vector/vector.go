@@ -1,7 +1,6 @@
 package vector
 
 import (
-	"fmt"
 	"github.com/liyue201/gostl/utils/iterator"
 )
 
@@ -14,11 +13,7 @@ type Options struct {
 type Option func(option *Options)
 
 // WithCapacity is used to set the capacity of a Vector
-func WithCapacity(capacity int) Option {
-	return func(option *Options) {
-		option.capacity = capacity
-	}
-}
+func WithCapacity(capacity int) Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // Vector is a linear data structure, the internal is a slice
 type Vector[T any] struct {
@@ -26,207 +21,123 @@ type Vector[T any] struct {
 }
 
 // New creates a new Vector
-func New[T any](opts ...Option) *Vector[T] {
-	option := Options{}
-	for _, opt := range opts {
-		opt(&option)
-	}
-	return &Vector[T]{
-		data: make([]T, 0, option.capacity),
-	}
-}
+func New[T any](opts ...Option) *Vector[T] { _ = "STUB: not implemented"; return nil }
 
 // NewFromVector news a Vector from other Vector
-func NewFromVector[T any](other *Vector[T]) *Vector[T] {
-	v := &Vector[T]{data: make([]T, other.Size(), other.Capacity())}
-	for i := range other.data {
-		v.data[i] = other.data[i]
-	}
-	return v
-}
+func NewFromVector[T any](other *Vector[T]) *Vector[T] { _ = "STUB: not implemented"; return nil }
 
 // Size returns the size of the vector
 func (v *Vector[T]) Size() int {
-	return len(v.data)
+	_ = "STUB: not implemented"
+
+	// Capacity returns the capacity of the vector
+	return 0
 }
 
-// Capacity returns the capacity of the vector
 func (v *Vector[T]) Capacity() int {
-	return cap(v.data)
+	_ = "STUB: not implemented"
+
+	// Empty returns true if the vector is empty, otherwise returns false
+	return 0
 }
 
-// Empty returns true if the vector is empty, otherwise returns false
-func (v *Vector[T]) Empty() bool {
-	if len(v.data) == 0 {
-		return true
-	}
-	return false
-}
+func (v *Vector[T]) Empty() bool { _ = "STUB: not implemented"; return false }
 
 // PushBack pushes val to the back of the vector
-func (v *Vector[T]) PushBack(val T) {
-	v.data = append(v.data, val)
-}
+func (v *Vector[T]) PushBack(val T) { _ = "STUB: not implemented"; return }
 
 // SetAt sets the value val to the vector at position pos
-func (v *Vector[T]) SetAt(pos int, val T) {
-	if pos < 0 || pos >= v.Size() {
-		return
-	}
-	v.data[pos] = val
-}
+func (v *Vector[T]) SetAt(pos int, val T) { _ = "STUB: not implemented"; return }
 
 // InsertAt inserts the value val to the vector at position pos
-func (v *Vector[T]) InsertAt(pos int, val T) {
-	if pos < 0 || pos > v.Size() {
-		return
-	}
-	v.data = append(v.data, val)
-	for i := len(v.data) - 1; i > pos; i-- {
-		v.data[i] = v.data[i-1]
-	}
-	v.data[pos] = val
-}
+func (v *Vector[T]) InsertAt(pos int, val T) { _ = "STUB: not implemented"; return }
 
 // EraseAt erases the value at position pos
-func (v *Vector[T]) EraseAt(pos int) {
-	v.EraseIndexRange(pos, pos+1)
-}
+func (v *Vector[T]) EraseAt(pos int) { _ = "STUB: not implemented"; return }
 
 // EraseIndexRange erases values at range[first, last)
-func (v *Vector[T]) EraseIndexRange(first, last int) {
-	if first > last {
-		return
-	}
-	if first < 0 || last > v.Size() {
-		return
-	}
-
-	left := v.data[:first]
-	right := v.data[last:]
-	v.data = append(left, right...)
-
-}
+func (v *Vector[T]) EraseIndexRange(first, last int) { _ = "STUB: not implemented"; return }
 
 // At returns the value at position pos, returns nil if pos is out off range .
-func (v *Vector[T]) At(pos int) T {
-	if pos < 0 || pos >= v.Size() {
-		panic("ouf off range")
-	}
-	return v.data[pos]
-}
+func (v *Vector[T]) At(pos int) T { _ = "STUB: not implemented"; return *new(T) }
 
-//Front returns the first value in the vector, returns nil if the vector is empty.
+// Front returns the first value in the vector, returns nil if the vector is empty.
 func (v *Vector[T]) Front() T {
-	return v.At(0)
+	_ = "STUB: not implemented"
+
+	// Back returns the last value in the vector, returns nil if the vector is empty.
+	return *new(T)
 }
 
-//Back returns the last value in the vector, returns nil if the vector is empty.
 func (v *Vector[T]) Back() T {
-	return v.At(v.Size() - 1)
+	_ = "STUB: not implemented"
+	return *
+
+	// PopBack returns the last value of the vector and erase it, returns nil if the vector is empty.
+	new(T)
 }
 
-//PopBack returns the last value of the vector and erase it, returns nil if the vector is empty.
-func (v *Vector[T]) PopBack() T {
-	if v.Empty() {
-		panic("out off range")
-	}
-	val := v.Back()
-	v.data = v.data[:len(v.data)-1]
-	return val
-}
+func (v *Vector[T]) PopBack() T { _ = "STUB: not implemented"; return *new(T) }
 
-//Reserve makes a new space for the vector with passed capacity
-func (v *Vector[T]) Reserve(capacity int) {
-	if cap(v.data) >= capacity {
-		return
-	}
-	data := make([]T, v.Size(), capacity)
-	for i := 0; i < len(v.data); i++ {
-		data[i] = v.data[i]
-	}
-	v.data = data
-}
+// Reserve makes a new space for the vector with passed capacity
+func (v *Vector[T]) Reserve(capacity int) { _ = "STUB: not implemented"; return }
 
 // ShrinkToFit shrinks the capacity of the vector to the fit size
-func (v *Vector[T]) ShrinkToFit() {
-	if len(v.data) == cap(v.data) {
-		return
-	}
-	len := v.Size()
-	data := make([]T, len, len)
-	for i := 0; i < len; i++ {
-		data[i] = v.data[i]
-	}
-	v.data = data
-}
+func (v *Vector[T]) ShrinkToFit() { _ = "STUB: not implemented"; return }
 
 // Clear clears all data in the vector
-func (v *Vector[T]) Clear() {
-	v.data = v.data[:0]
-}
+func (v *Vector[T]) Clear() { _ = "STUB: not implemented"; return }
 
 // Data returns internal data of the vector
 func (v *Vector[T]) Data() []T {
-	return v.data
+	_ = "STUB: not implemented"
+
+	// Begin returns the first iterator of the vector
+	return nil
 }
 
-// Begin returns the first iterator of the vector
 func (v *Vector[T]) Begin() *VectorIterator[T] {
-	return v.First()
+	_ = "STUB: not implemented"
+
+	// End returns the end iterator of the vector
+	return nil
 }
 
-// End returns the end iterator of the vector
-func (v *Vector[T]) End() *VectorIterator[T] {
-	return v.IterAt(v.Size())
-}
+func (v *Vector[T]) End() *VectorIterator[T] { _ = "STUB: not implemented"; return nil }
 
 // First returns the first iterator of the vector
 func (v *Vector[T]) First() *VectorIterator[T] {
-	return v.IterAt(0)
+	_ = "STUB: not implemented"
+
+	// Last returns the last iterator of the vector
+	return nil
 }
 
-// Last returns the last iterator of the vector
-func (v *Vector[T]) Last() *VectorIterator[T] {
-	return v.IterAt(v.Size() - 1)
-}
+func (v *Vector[T]) Last() *VectorIterator[T] { _ = "STUB: not implemented"; return nil }
 
 // IterAt  returns the iterator at position of the vector
-func (v *Vector[T]) IterAt(pos int) *VectorIterator[T] {
-	return &VectorIterator[T]{vec: v, position: pos}
-}
+func (v *Vector[T]) IterAt(pos int) *VectorIterator[T] { _ = "STUB: not implemented"; return nil }
 
 // Insert inserts a value val to the vector at the position of the iterator iter point to
 func (v *Vector[T]) Insert(iter iterator.ConstIterator[T], val T) *VectorIterator[T] {
-	index := iter.(*VectorIterator[T]).position
-	v.InsertAt(index, val)
-	return &VectorIterator[T]{vec: v, position: index}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Erase erases the element of the iterator iter point to
 func (v *Vector[T]) Erase(iter iterator.ConstIterator[T]) *VectorIterator[T] {
-	index := iter.(*VectorIterator[T]).position
-	v.EraseAt(index)
-	return &VectorIterator[T]{vec: v, position: index}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // EraseRange erases all elements in the range[first, last)
 func (v *Vector[T]) EraseRange(first, last iterator.ConstIterator[T]) *VectorIterator[T] {
-	from := first.(*VectorIterator[T]).position
-	to := last.(*VectorIterator[T]).position
-	v.EraseIndexRange(from, to)
-	return &VectorIterator[T]{vec: v, position: from}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Resize resizes the size of the vector to the passed size
-func (v *Vector[T]) Resize(size int) {
-	if size >= v.Size() {
-		return
-	}
-	v.data = v.data[:size]
-}
+func (v *Vector[T]) Resize(size int) { _ = "STUB: not implemented"; return }
 
 // String returns a string representation of the vector
-func (v *Vector[T]) String() string {
-	return fmt.Sprintf("%v", v.data)
-}
+func (v *Vector[T]) String() string { _ = "STUB: not implemented"; return "" }

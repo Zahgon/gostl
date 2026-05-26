@@ -20,20 +20,24 @@ type FakeLocker struct {
 
 // Lock does nothing
 func (l FakeLocker) Lock() {
+	_ = "STUB: not implemented"
 
+	// Unlock does nothing
+	return
 }
 
-// Unlock does nothing
 func (l FakeLocker) Unlock() {
+	_ = "STUB: not implemented"
 
+	// RLock does nothing
+	return
 }
 
-// RLock does nothing
 func (l FakeLocker) RLock() {
+	_ = "STUB: not implemented"
 
+	// RUnlock does nothing
+	return
 }
 
-// RUnlock does nothing
-func (l FakeLocker) RUnlock() {
-
-}
+func (l FakeLocker) RUnlock() { _ = "STUB: not implemented"; return }
